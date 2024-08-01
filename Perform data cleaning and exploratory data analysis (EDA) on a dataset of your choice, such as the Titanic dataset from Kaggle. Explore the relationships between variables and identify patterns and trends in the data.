@@ -1,0 +1,19 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+train_df = pd.read_csv('titanic_train.csv')
+
+plt.hist(train_df['Age'], bins=50, edgecolor='black')
+
+plt.title('Age Distribution of Titanic Passengers')
+plt.xlabel('Age')
+plt.ylabel('Frequency')
+plt.xticks(range(0, 81, 10))  # Set x-axis ticks every 10 years
+plt.xlim(0, 80)  # Set x-axis limits to 0-80 years
+
+mean_age = train_df['Age'].mean()
+plt.axvline(mean_age, color='red', linestyle='dashed', linewidth=2, label='Mean Age')
+
+plt.legend()
+
+plt.show()
